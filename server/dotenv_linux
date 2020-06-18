@@ -1,0 +1,4 @@
+SECRET_KEY=super_secret_key_you_should_change
+NC_DB_URI=connection_string_without_quote
+NC_NS=database_name_of_the_project
+PORT=5000
