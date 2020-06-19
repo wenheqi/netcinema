@@ -1,0 +1,9 @@
+.formGroup {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.formGroup:last-child {
+  margin-bottom: 10px;
+}
