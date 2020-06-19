@@ -1,0 +1,66 @@
+.topnav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between; /* main axis */
+  align-items: center; /* cross axis */
+  padding: 10px;
+  background-color: black;
+  font-family: "MuseoModerno", sans-serif;
+}
+.topnav-left {
+  font-size: 1.5rem;
+}
+
+.topnav-left a {
+  text-decoration: none;
+  color: #e50914;
+}
+
+.topnav-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.topnav-right > div {
+  margin-right: 10px;
+}
+
+.topnav-right > div:last-child {
+  margin-right: 0;
+}
+
+.topnav-right a {
+  text-decoration: none;
+  background-color: #e50914;
+  border-radius: 3px;
+  color: inherit;
+  font-size: 1rem;
+  line-height: normal;
+  padding: 6px 16px;
+}
+
+.topnav-right a:hover {
+  color: black;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .topnav {
+    padding: 20px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+}
