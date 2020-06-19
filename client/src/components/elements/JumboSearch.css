@@ -1,0 +1,49 @@
+.jumboSearchContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  align-self: stretch;
+  padding: 20px 10px;
+  background-image: url("https://cdn.arstechnica.net/wp-content/uploads/2020/03/ww03-red-800x450.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 200px;
+  height: calc(100vh / 2.5);
+  max-height: 360px;
+}
+
+.jumboSearchContainer form {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.jumboSearchContainer form input {
+  outline: none;
+  font-family: inherit;
+}
+
+.jumboSearchContainer form input[type="text"] {
+  width: 100%;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+.jumboSearchContainer form input[type="submit"] {
+  display: inline-flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  padding: 10px 10px;
+  border: none;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  right: -1px;
+  background: linear-gradient(to right, #e66167 0%, #e50914 100%);
+  color: #fff;
+}
