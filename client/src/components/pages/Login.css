@@ -1,0 +1,50 @@
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: black;
+}
+
+.loginFormContainer {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginRememberMe {
+  display: flex;
+  justify-content: space-between;
+  color: #b3b3b3;
+  font: 0.9rem;
+}
+
+.loginRememberMe a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.loginRememberMe a:hover {
+  text-decoration: underline;
+}
+
+.loginSignUpNowContainer {
+  display: flex;
+  flex-direction: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  color: #737373;
+  margin-top: 50px;
+  font-size: 1.2rem;
+}
+
+.loginSignUpNowContainer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+
+.loginSignUpNowContainer a:hover {
+  text-decoration: underline;
+}
