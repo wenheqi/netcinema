@@ -1,0 +1,60 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputFieldContainer {
+  position: relative;
+}
+
+.inputFieldContainer > label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #8c8c8c;
+  margin-bottom: 0.5rem;
+  transform: translateY(
+    -50%
+  ); /* a percentage value refers to the height of the reference box */
+  transition: all 0.2s;
+}
+
+.inputFieldContainer > input:hover + label,
+.inputFieldContainer > input:focus + label,
+.hasText + label {
+  transform: translateY(0);
+  top: 7px;
+  font-size: 0.8rem;
+}
+
+.inputFieldContainer > input {
+  background: #333;
+  border-radius: 4px;
+  border: 0;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+  padding: 16px 20px 0;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.inputFieldContainer > input.isInvalid {
+  border-bottom: 1px solid orange;
+}
+
+.inputErrorContainer {
+  align-items: center;
+}
+
+.inputErrorContainer > span {
+  display: none;
+}
+
+.inputErrorContainer > span.isInvalid {
+  display: block;
+  font-size: 0.9rem;
+  color: orange;
+  padding: 5px;
+}
