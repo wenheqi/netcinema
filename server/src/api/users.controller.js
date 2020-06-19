@@ -47,6 +47,15 @@ class UserController {
       });
     }
   }
+
+  static async signout(req, res) {
+    // currently no session information is stored in db
+    // hence return ok directly
+    const result = await {
+      status: "ok",
+    };
+    res.send(result);
+  }
 }
 
 exports = module.exports = UserController;
