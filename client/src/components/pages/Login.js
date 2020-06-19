@@ -14,6 +14,7 @@ export default function Login() {
   const [isValidEmail, setIsValidEmail] = useState(true);
   const [password, setPassword] = useState("");
   const [isValidPassword, setIsValidPassword] = useState(true);
+  const [loginErrMsg, setLoginErrMsg] = useState("");
 
   const validateEmail = (email) => {
     if (/\S+@\S+\.\S+/.test(email)) {
@@ -66,7 +67,10 @@ export default function Login() {
         console.log(result);
         if (result.status === "ok") {
           localStorage.setItem("nc-token", result.token);
+          setLoginErrMsg("");
           window.location = "/";
+        } else {
+          setLoginErrMsg(result.error);
         }
       })
       .catch((e) => {
@@ -104,7 +108,17 @@ export default function Login() {
             />
           </FormGroup>
           <FormGroup>
-            <div style={{ marginTop: "20px" }}>
+            <div
+              className={
+                "loginErrMsgContainer" +
+                (loginErrMsg.length > 0 ? " hasError" : " ")
+              }
+            >
+              {loginErrMsg}
+            </div>
+          </FormGroup>
+          <FormGroup>
+            <div>
               <UIButton type="submit" autoComplete="off" text="Sign In" />
             </div>
           </FormGroup>
