@@ -65,7 +65,7 @@ export default function Login() {
       .then((result) => {
         console.log(result);
         if (result.status === "ok") {
-          localStorage.setItem("netcinema-user", result.token);
+          localStorage.setItem("nc-token", result.token);
           window.location = "/";
         }
       })
