@@ -1,0 +1,8 @@
+.sectionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-family: "Nunito", "Arial Narrow", Arial, sans-serif;
+}
