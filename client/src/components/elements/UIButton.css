@@ -1,0 +1,27 @@
+.uiButton {
+  width: 100%;
+  max-width: 100%;
+  padding: 16px;
+  background: #e50914;
+  font-size: 1.2rem;
+  color: white;
+  border: 0;
+  border-radius: 4px;
+  outline: none;
+}
+
+@keyframes uiButtonClicked {
+  0% {
+    background: #e50914;
+  }
+  50% {
+    background: #ee3535;
+  }
+  100% {
+    background: #e50914;
+  }
+}
+
+.uiButton:active {
+  animation: uiButtonClicked 0.2s 1;
+}
