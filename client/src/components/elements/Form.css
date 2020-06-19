@@ -1,0 +1,9 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background-color: black;
+  padding: 0 10px 0 10px;
+  width: 100%;
+  max-width: 350px;
+}
