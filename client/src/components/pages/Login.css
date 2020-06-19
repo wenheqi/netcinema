@@ -14,10 +14,10 @@
 }
 
 .loginErrMsgContainer {
-  visibility: hidden;
   align-self: center;
   text-align: center;
   border: 1px solid orange;
+  border-radius: 5px;
   width: 100%;
   padding: 10px;
   margin: 5px 0;
@@ -27,6 +27,11 @@
 
 .loginErrMsgContainer.hasError {
   visibility: visible;
+}
+
+.loginErrMsgContainer.hasNoError {
+  visibility: hidden;
+  transition: none;
 }
 
 .loginRememberMe {

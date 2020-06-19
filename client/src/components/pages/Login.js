@@ -66,8 +66,8 @@ export default function Login() {
       .then((result) => {
         console.log(result);
         if (result.status === "ok") {
-          localStorage.setItem("nc-token", result.token);
           setLoginErrMsg("");
+          localStorage.setItem("nc-token", result.token);
           window.location = "/";
         } else {
           setLoginErrMsg(result.error);
@@ -111,7 +111,7 @@ export default function Login() {
             <div
               className={
                 "loginErrMsgContainer" +
-                (loginErrMsg.length > 0 ? " hasError" : " ")
+                (loginErrMsg.length > 0 ? " hasError" : " hasNoError")
               }
             >
               {loginErrMsg}
