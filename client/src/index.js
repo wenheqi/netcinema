@@ -6,6 +6,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 import Login from "./components/pages/Login";
+import Logout from "./components/pages/Logout";
 
 ReactDOM.render(
   <Router>
@@ -14,7 +15,10 @@ ReactDOM.render(
         <App />
       </Route>
       <Route exact path="/login">
-        <Login />
+        {localStorage.getItem("nc-token") ? <App /> : <Login />}
+      </Route>
+      <Route exact path="/logout">
+        {localStorage.getItem("nc-token") ? <Logout /> : <App />}
       </Route>
     </div>
   </Router>,
