@@ -113,3 +113,10 @@
     height: 8px;
   }
 }
+
+/* Medium devices (tablets, e.g. iPad, 768px and up) */
+@media (min-width: 768px) {
+  .jumboSearchContainer form input[type="submit"] {
+    right: -2px;
+  }
+}
