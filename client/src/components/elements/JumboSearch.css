@@ -47,3 +47,69 @@
   background: linear-gradient(to right, #e66167 0%, #e50914 100%);
   color: #fff;
 }
+
+.searchAutoCompleteContainer {
+  display: none;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 0;
+  transition: height 5s ease-in-out;
+}
+
+.searchAutoCompleteContainer.hasQuery {
+  display: block;
+}
+
+.searchAutoCompleteLoading,
+.searchAutoCompleteContent {
+  position: absolute;
+  top: 3px;
+  width: 100%;
+  border-radius: 5px;
+  padding: 5px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  background: #3d3d3deb;
+}
+
+.seachAutoCompleteLoader {
+  display: inline-block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.seachAutoCompleteLoader div {
+  display: inline-block;
+  position: absolute;
+  left: 4px;
+  width: 8px;
+  background: #e50914;
+  animation: seachAutoCompleteLoader 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.seachAutoCompleteLoader div:nth-child(1) {
+  left: 4px;
+  animation-delay: -0.24s;
+}
+.seachAutoCompleteLoader div:nth-child(2) {
+  left: 16px;
+  animation-delay: -0.12s;
+}
+.seachAutoCompleteLoader div:nth-child(3) {
+  left: 28px;
+  animation-delay: 0;
+}
+@keyframes seachAutoCompleteLoader {
+  0% {
+    top: 2px;
+    height: 16px;
+  }
+  50%,
+  100% {
+    top: 6px;
+    height: 8px;
+  }
+}
