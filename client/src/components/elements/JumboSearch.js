@@ -1,13 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./JumboSearch.css";
 
 export default function JumboSearch() {
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [suggestionData, setSuggestionData] = useState([]);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      if (query.length === 0 || /^\s+$/.test(query)) {
+        return;
+      }
+      axios
+        .get(`/api/v1/movies/suggest/${query.trim()}`)
+        .then((res) => {
+          return res.data;
+        })
+        .then((data) => {
+          setIsLoading(false);
+          setSuggestionData(data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }, 200);
+  }, [query]);
+
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
-    // query auto-complete suggestion from db
-    // set loading/display status accordingly
   };
   return (
     <div className="jumboSearchContainer">
@@ -35,7 +57,7 @@ export default function JumboSearch() {
         >
           {isLoading ? (
             <div className="searchAutoCompleteLoading">
-              <div class="seachAutoCompleteLoader">
+              <div className="seachAutoCompleteLoader">
                 <div></div>
                 <div></div>
                 <div></div>
@@ -43,12 +65,22 @@ export default function JumboSearch() {
             </div>
           ) : (
             <div className="searchAutoCompleteContent">
-              <div>{query}</div>
-              <div>{query}</div>
-              <div>{query}</div>
-              <div>{query}</div>
-              <div>{query}</div>
-              <div>{query}</div>
+              {suggestionData.length > 0 ? (
+                suggestionData.map((movie) => {
+                  return (
+                    <div key={movie._id}>
+                      <a
+                        style={{ color: "inherit", textDecoration: "none" }}
+                        href={`/movie/${movie._id}`}
+                      >
+                        {movie.name}
+                      </a>
+                    </div>
+                  );
+                })
+              ) : (
+                <div>No result found...</div>
+              )}
             </div>
           )}
         </div>

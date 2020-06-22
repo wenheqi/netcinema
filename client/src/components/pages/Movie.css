@@ -1,0 +1,55 @@
+.heroContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: tomato;
+  position: relative;
+}
+
+.heroImageContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.heroImage {
+  width: 100%;
+  max-width: 100%;
+  background-color: aqua;
+  overflow: hidden;
+}
+
+.heroImage > img {
+  width: 100%;
+}
+
+.heroMetadataContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .heroImageContainer {
+    background-color: lime;
+  }
+
+  .heroImage {
+    background-color: aqua;
+    max-height: 700px;
+    overflow: hidden;
+  }
+
+  .heroImage img {
+    width: 100%;
+  }
+
+  .heroMetadataContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: absolute;
+    height: 100%;
+    width: 35%;
+    background-color: skyblue;
+  }
+}
