@@ -8,6 +8,7 @@
   border: 0;
   border-radius: 4px;
   outline: none;
+  font: inherit;
 }
 
 @keyframes uiButtonClicked {

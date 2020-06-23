@@ -1,0 +1,61 @@
+.notFoundContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  /* background: darkcyan; */
+}
+
+.notFoundHeroContainer {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background: darkgoldenrod; */
+}
+
+.notFoundHeroTitleContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("../../assets/red_pipes-594140f35efb300741add9827cc4f41053b0a4bb7ba249a40375377cc9d22d47.svg");
+  background-position: -90px center;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+.notFoundHeroTitleContainer > h1 {
+  font-family: "Shrikhand", cursive;
+  font-size: 60px;
+  margin-bottom: 0;
+  position: relative;
+}
+
+.notFoundHeroTitleContainer > img {
+  width: 100%;
+  position: relative;
+  top: -50px;
+}
+
+.notFoundHeroContentContainer {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: darkgreen;
+  font-family: "MuseoModerno", cursive;
+  padding: 0 5px;
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .notFoundHeroTitleContainer {
+    width: 70%;
+  }
+  .notFoundHeroContentContainer {
+    width: 70%;
+  }
+}
