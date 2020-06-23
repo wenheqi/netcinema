@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import NavBar from "../elements/Navbar";
+import Footer from "../elements/Footer";
+import Loader from "../elements/Loader";
 import "./Movie.css";
 
 export default function Movie() {
@@ -29,87 +31,107 @@ export default function Movie() {
 
   return (
     <div>
+      <NavBar />
       {isLoading ? (
-        <div>I'm loading</div>
+        <Loader />
       ) : (
         <div>
           {movie == null ? (
             <div>no data for this movie</div>
           ) : (
-            <div>
-              <NavBar />
-              <div className="heroContainer">
-                <div className="heroImageContainer">
-                  <div className="heroImage">
-                    <img
-                      src={
-                        movie.thumbnailUrl ? movie.thumbnailUrl : movie.image
-                      }
-                      alt={movie.name}
-                    />
-                  </div>
+            <div className="heroContainer">
+              <div className="heroImageContainer">
+                <div className="heroImage">
+                  <img
+                    src={movie.thumbnailUrl ? movie.thumbnailUrl : movie.image}
+                    alt={movie.name}
+                  />
                 </div>
-                <div className="heroMetadataContainer">
-                  <h1 className="titleInfoTitle">{movie.name}</h1>
-                  <div className="titleInfoMetadataContainer">
-                    <span>
-                      <a>
-                        {movie.year
-                          ? movie.year
-                          : movie.datePublished.substring(0, 4)}
-                      </a>
-                    </span>
-                    <span>
-                      <a>
-                        {movie.contentRating
-                          ? movie.contentRating
-                          : "Not Rated"}
-                      </a>
-                    </span>
-                    <span>
-                      <a>{movie.duration.substring(2).toLowerCase()}</a>
-                    </span>
-                    <span>
-                      <a>{movie.genre[0]}</a>
-                    </span>
-                  </div>
-                  <div className="titleInfoPlot">
-                    <div>{movie.description}</div>
-                  </div>
-                </div>
+                <div className="heroImageOverlay"></div>
               </div>
+              <div className="heroDetailsContainer">
+                <h1 className="heroDetailsTitle">{movie.name}</h1>
+                <div className="heroMetadataContainer">
+                  {movie.year ? (
+                    <span className="heroMetadataItem itemYear">
+                      {movie.year}
+                    </span>
+                  ) : movie.datePublished ? (
+                    <span>{movie.datePublished.substring(0, 4)}</span>
+                  ) : null}
 
-              <div className="moreDetails">
-                <span>{movie.aggregateRating.ratingValue} / 10</span>
-                <div>
-                  <div>Keywords</div>
-                  {movie.keywords.map((keyword) => {
-                    return <span key={keyword}>{keyword}</span>;
-                  })}
+                  {movie.contentRating ? (
+                    <span className="heroMetadataItem">
+                      <span className="contentRating">
+                        <span className="contentRatingNumber">
+                          {movie.contentRating}
+                        </span>
+                      </span>
+                    </span>
+                  ) : null}
+
+                  {movie.duration ? (
+                    <span className="heroMetadataItem">
+                      {movie.duration
+                        .substring(2)
+                        .toLowerCase()
+                        .replace("h", "h ")}
+                    </span>
+                  ) : null}
+
+                  {movie.aggregateRating ? (
+                    <span className="heroMetadataItem">
+                      {movie.aggregateRating.ratingValue}
+                    </span>
+                  ) : null}
                 </div>
-                <div>
-                  <div>Director</div>
-                  {movie.director.map((director) => {
-                    return <span key={director.nmid}>{director.name}</span>;
-                  })}
-                </div>
-                <div>
-                  <div>Cast</div>
-                  {movie.actor.map((actor) => {
-                    return <span key={actor.nmid}>{actor.name}</span>;
-                  })}
-                </div>
-                <div>
-                  <div>Genre</div>
-                  {movie.genre.map((genre) => {
-                    return <span key={genre}>{genre}</span>;
-                  })}
+                <div className="heroSynopsisContainer">
+                  {movie.description ? (
+                    <div className="heroSynopsisItem">{movie.description}</div>
+                  ) : null}
+
+                  {movie.director ? (
+                    <div className="heroSynopsisItem">
+                      <span className="heroSynopsisItemLabel">Director: </span>
+                      {movie.director.map((director) => {
+                        return <span key={director.nmid}>{director.name}</span>;
+                      })}
+                    </div>
+                  ) : null}
+
+                  {movie.actor ? (
+                    <div className="heroSynopsisItem">
+                      <span className="heroSynopsisItemLabel">Starring:</span>
+                      {movie.actor.map((actor) => {
+                        return <span key={actor.nmid}>{actor.name}</span>;
+                      })}
+                    </div>
+                  ) : null}
+
+                  {movie.genre ? (
+                    <div className="heroSynopsisItem">
+                      <span className="heroSynopsisItemLabel">Genre: </span>
+                      {movie.genre.map((genre) => {
+                        return <span key={genre}>{genre}</span>;
+                      })}
+                    </div>
+                  ) : null}
+
+                  {movie.keywords ? (
+                    <div className="heroSynopsisItem">
+                      <span className="heroSynopsisItemLabel">Keyword: </span>
+                      {movie.keywords.map((keyword) => {
+                        return <span key={keyword}>{keyword}</span>;
+                      })}
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </div>
           )}
         </div>
       )}
+      <Footer />
     </div>
   );
 }

@@ -1,29 +1,100 @@
 .heroContainer {
   display: flex;
   flex-direction: column;
-  background-color: tomato;
   position: relative;
 }
 
 .heroImageContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+
+  position: relative;
+}
+
+.heroImageOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background-image: linear-gradient(
+    to top,
+    rgb(0, 0, 0),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 .heroImage {
   width: 100%;
   max-width: 100%;
-  background-color: aqua;
   overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .heroImage > img {
   width: 100%;
 }
 
-.heroMetadataContainer {
+.heroDetailsContainer {
   display: flex;
   flex-direction: column;
+  padding: 0 10px;
+}
+
+.heroDetailsTitle {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.heroMetadataContainer {
+  color: #a3a3a3;
+}
+
+.heroMetadataContainer > :not(:last-child) {
+  border-right: 1px solid #a3a3a3;
+  margin-right: 9px;
+  padding-right: 11px;
+}
+
+.heroMetadataItem {
+  display: inline-block;
+}
+
+.contentRating {
+  display: inline-block;
+}
+
+.contentRatingNumber {
+  border: 1px solid #a1a1a1;
+  padding: 0 5px;
+}
+
+.heroSynopsisContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.heroSynopsisItem {
+  margin-top: 10px;
+}
+
+.heroSynopsisItem span {
+  display: inline-block;
+  margin-bottom: 3px;
+  margin-right: 5px;
+}
+
+.heroSynopsisItemLabel {
+  color: #a3a3a3;
+}
+
+.heroSynopsisItemLabel ~ span:not(:last-of-type)::after {
+  content: ",";
+}
+
+.heroSynopsisContainer > :last-child {
+  margin-bottom: 10px;
 }
 
 /* Medium devices (tablets, 768px and up) */
