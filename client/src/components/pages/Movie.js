@@ -25,6 +25,7 @@ export default function Movie() {
         setIsLoading(false);
       })
       .catch((e) => {
+        setIsLoading(false);
         setMovie(null);
       });
   }, [id]);
@@ -36,7 +37,7 @@ export default function Movie() {
         <Loader />
       ) : (
         <div>
-          {movie == null ? (
+          {movie === null || movie.status === "error" ? (
             <div>no data for this movie</div>
           ) : (
             <div className="heroContainer">
