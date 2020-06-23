@@ -50,87 +50,97 @@ export default function Movie() {
                 <div className="heroImageOverlay"></div>
               </div>
               <div className="heroDetailsContainer">
-                <h1 className="heroDetailsTitle">{movie.name}</h1>
-                <div className="heroMetadataContainer">
-                  {movie.year ? (
-                    <span className="heroMetadataItem itemYear">
-                      {movie.year}
-                    </span>
-                  ) : movie.datePublished ? (
-                    <span>{movie.datePublished.substring(0, 4)}</span>
-                  ) : null}
+                <div className="heroDetails">
+                  <h1 className="heroDetailsTitle">{movie.name}</h1>
+                  <div className="heroMetadataContainer">
+                    {movie.year ? (
+                      <span className="heroMetadataItem itemYear">
+                        {movie.year}
+                      </span>
+                    ) : movie.datePublished ? (
+                      <span>{movie.datePublished.substring(0, 4)}</span>
+                    ) : null}
 
-                  {movie.contentRating ? (
-                    <span className="heroMetadataItem">
-                      <span className="contentRating">
-                        <span className="contentRatingNumber">
-                          {movie.contentRating}
+                    {movie.contentRating ? (
+                      <span className="heroMetadataItem">
+                        <span className="contentRating">
+                          <span className="contentRatingNumber">
+                            {movie.contentRating}
+                          </span>
                         </span>
                       </span>
-                    </span>
-                  ) : null}
+                    ) : null}
 
-                  {movie.duration ? (
-                    <span className="heroMetadataItem">
-                      {movie.duration
-                        .substring(2)
-                        .toLowerCase()
-                        .replace("h", "h ")}
-                    </span>
-                  ) : null}
+                    {movie.duration ? (
+                      <span className="heroMetadataItem">
+                        {movie.duration
+                          .substring(2)
+                          .toLowerCase()
+                          .replace("h", "h ")}
+                      </span>
+                    ) : null}
 
-                  {movie.aggregateRating ? (
-                    <span className="heroMetadataItem">
-                      {movie.aggregateRating.ratingValue}
-                    </span>
-                  ) : null}
-                </div>
-                <div className="heroSynopsisContainer">
-                  {movie.description ? (
-                    <div className="heroSynopsisItem">{movie.description}</div>
-                  ) : null}
+                    {movie.aggregateRating ? (
+                      <span className="heroMetadataItem">
+                        {movie.aggregateRating.ratingValue}
+                      </span>
+                    ) : null}
+                  </div>
+                  <div className="heroSynopsisContainer">
+                    {movie.description ? (
+                      <div className="heroSynopsisItem">
+                        {movie.description}
+                      </div>
+                    ) : null}
 
-                  {movie.director ? (
-                    <div className="heroSynopsisItem">
-                      <span className="heroSynopsisItemLabel">Director: </span>
-                      {movie.director.map((director) => {
-                        return <span key={director.nmid}>{director.name}</span>;
-                      })}
-                    </div>
-                  ) : null}
+                    {movie.director ? (
+                      <div className="heroSynopsisItem">
+                        <span className="heroSynopsisItemLabel">
+                          Director:{" "}
+                        </span>
+                        {movie.director.map((director) => {
+                          return (
+                            <span key={director.nmid}>{director.name}</span>
+                          );
+                        })}
+                      </div>
+                    ) : null}
 
-                  {movie.actor ? (
-                    <div className="heroSynopsisItem">
-                      <span className="heroSynopsisItemLabel">Starring:</span>
-                      {movie.actor.map((actor) => {
-                        return <span key={actor.nmid}>{actor.name}</span>;
-                      })}
-                    </div>
-                  ) : null}
+                    {movie.actor ? (
+                      <div className="heroSynopsisItem">
+                        <span className="heroSynopsisItemLabel">Starring:</span>
+                        {movie.actor.map((actor) => {
+                          return <span key={actor.nmid}>{actor.name}</span>;
+                        })}
+                      </div>
+                    ) : null}
 
-                  {movie.genre ? (
-                    <div className="heroSynopsisItem">
-                      <span className="heroSynopsisItemLabel">Genre: </span>
-                      {movie.genre.map((genre) => {
-                        return <span key={genre}>{genre}</span>;
-                      })}
-                    </div>
-                  ) : null}
+                    {movie.genre ? (
+                      <div className="heroSynopsisItem">
+                        <span className="heroSynopsisItemLabel">Genre: </span>
+                        {movie.genre.map((genre) => {
+                          return <span key={genre}>{genre}</span>;
+                        })}
+                      </div>
+                    ) : null}
 
-                  {movie.keywords ? (
-                    <div className="heroSynopsisItem">
-                      <span className="heroSynopsisItemLabel">Keyword: </span>
-                      {movie.keywords.map((keyword) => {
-                        return <span key={keyword}>{keyword}</span>;
-                      })}
-                    </div>
-                  ) : null}
+                    {movie.keywords ? (
+                      <div className="heroSynopsisItem">
+                        <span className="heroSynopsisItemLabel">Keyword: </span>
+                        {movie.keywords.map((keyword) => {
+                          return <span key={keyword}>{keyword}</span>;
+                        })}
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </div>
           )}
         </div>
       )}
+      <div>TODO: I'm another container</div>
+      <div>TODO: I'm yet another container</div>
       <Footer />
     </div>
   );

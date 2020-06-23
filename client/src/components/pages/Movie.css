@@ -40,6 +40,7 @@
   display: flex;
   flex-direction: column;
   padding: 0 10px;
+  font-family: "Nunito", sans-serif;
 }
 
 .heroDetailsTitle {
@@ -97,30 +98,52 @@
   margin-bottom: 10px;
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-  .heroImageContainer {
-    background-color: lime;
-  }
-
-  .heroImage {
-    background-color: aqua;
-    max-height: 700px;
-    overflow: hidden;
-  }
-
-  .heroImage img {
-    width: 100%;
-  }
-
-  .heroMetadataContainer {
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .heroDetailsContainer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    padding: 0 50px;
     position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    max-width: 60%;
     height: 100%;
-    width: 35%;
-    background-color: skyblue;
+    background-image: linear-gradient(
+      to right,
+      #171717 0,
+      rgba(23, 23, 23, 0.98) 20%,
+      rgba(23, 23, 23, 0.97) 25%,
+      rgba(23, 23, 23, 0.95) 35%,
+      rgba(23, 23, 23, 0.94) 40%,
+      rgba(23, 23, 23, 0.92) 45%,
+      rgba(23, 23, 23, 0.9) 50%,
+      rgba(23, 23, 23, 0.87) 55%,
+      rgba(23, 23, 23, 0.82) 60%,
+      rgba(23, 23, 23, 0.75) 65%,
+      rgba(23, 23, 23, 0.63) 70%,
+      rgba(23, 23, 23, 0.45) 75%,
+      rgba(23, 23, 23, 0.27) 80%,
+      rgba(23, 23, 23, 0.15) 85%,
+      rgba(23, 23, 23, 0.08) 90%,
+      rgba(23, 23, 23, 0.03) 95%,
+      rgba(23, 23, 23, 0) 100%
+    );
+  }
+
+  .heroDetails {
+    width: 77%;
+  }
+
+  .heroImageOverlay {
+    display: none;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .heroDetailsContainer {
+    max-width: 50%;
   }
 }
