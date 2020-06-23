@@ -4,7 +4,7 @@ class MoviesController {
   static async getMovieByID(req, res) {
     let result = await MoviesDao.getMovieByID(req.params.id);
     if (result === null) {
-      res.status(404).send({ status: "error", error: "movie not found" });
+      return res.send({ status: "error", error: "movie not found" });
     }
     result.status = "ok";
     res.send(result);
@@ -13,7 +13,7 @@ class MoviesController {
   static async getMoviesByName(req, res) {
     let result = await MoviesDao.getMoviesByName(req.params.name);
     if (result === null) {
-      res.status(404).send({ status: "error", error: "movie not found" });
+      return res.send({ status: "error", error: "movie not found" });
     }
     result.status = "ok";
     return res.send(result);
