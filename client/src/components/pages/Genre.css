@@ -1,0 +1,52 @@
+.genreContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.genreSliderContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.genreSliderNavbarContainer {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  padding: 10px 20px;
+}
+
+.genreSlideNavbar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  overflow-x: scroll;
+  scrollbar-width: 0;
+}
+
+/* hide scroll bar */
+.genreSlideNavbar::-webkit-scrollbar {
+  display: none;
+}
+
+.genreSlideNavbarItem {
+  margin: 0 10px;
+}
+
+.genreSlideNavbarItem > label {
+  cursor: pointer;
+}
+
+.genreSlideNavbarItem > label:first-of-type {
+  margin-left: 0;
+}
+
+.genreSlideNavbarItem > label:last-of-type {
+  margin-right: 0;
+}
+
+.genreSlideNavbarItem input {
+  display: none;
+}
+.genreSlideNavbarItem input:checked + span {
+  color: red;
+}

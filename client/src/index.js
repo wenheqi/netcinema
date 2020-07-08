@@ -9,6 +9,7 @@ import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
 import Signup from "./components/pages/Signup";
 import Movie from "./components/pages/Movie";
+import Genre from "./components/pages/Genre";
 
 ReactDOM.render(
   <Router>
@@ -27,6 +28,9 @@ ReactDOM.render(
       </Route>
       <Route exact path="/movie/:id">
         <Movie />
+      </Route>
+      <Route exact path="/genre/:id">
+        <Genre />
       </Route>
     </div>
   </Router>,
