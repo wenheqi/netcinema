@@ -1,0 +1,51 @@
+.signupContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: black;
+}
+
+.signupFormContainer {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.signupErrMsgContainer {
+  align-self: center;
+  text-align: center;
+  border: 1px solid orange;
+  border-radius: 5px;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+.signupErrMsgContainer.hasError {
+  visibility: visible;
+}
+
+.signupErrMsgContainer.hasNoError {
+  visibility: hidden;
+  transition: none;
+}
+
+.signupsignupRememberMe {
+  display: flex;
+  justify-content: space-between;
+  color: #b3b3b3;
+  font: 0.9rem;
+}
+
+.signupRememberMe a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.signupRememberMe a:hover {
+  text-decoration: underline;
+}

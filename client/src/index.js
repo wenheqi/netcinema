@@ -7,6 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 
 import Login from "./components/pages/Login";
 import Logout from "./components/pages/Logout";
+import Signup from "./components/pages/Signup";
 import Movie from "./components/pages/Movie";
 
 ReactDOM.render(
@@ -20,6 +21,9 @@ ReactDOM.render(
       </Route>
       <Route exact path="/logout">
         {localStorage.getItem("nc-token") ? <Logout /> : <App />}
+      </Route>
+      <Route exact path="/signup">
+        {localStorage.getItem("nc-token") ? <App /> : <Signup />}
       </Route>
       <Route exact path="/movie/:id">
         <Movie />

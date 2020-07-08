@@ -24,7 +24,7 @@ export default function Input({
             (value.length > 0 ? " hasText" : "") +
             (isValidInput ? " " : " isInvalid")
           }
-          novalidate="true"
+          noValidate={true}
         />
         <label>{label}</label>
       </div>
