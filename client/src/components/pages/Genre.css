@@ -1,6 +1,23 @@
 .genreContainer {
   display: flex;
   flex-direction: column;
+  padding: 5px 10px;
+}
+
+.genreBreadcrumb {
+  padding: 0;
+}
+
+.genreBreadcrumb a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.genreBreadcrumb a:hover {
+  color: #e50914;
 }
 
 .genreSliderContainer {
@@ -11,13 +28,20 @@
 .genreSliderNavbarContainer {
   display: flex;
   flex-direction: row;
-  position: relative;
-  padding: 10px 20px;
+  padding: 10px 0;
+  align-self: flex-start;
+  width: 100%;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1; /* flow over infinite scroll when becomes sticky */
+  background-color: #000000c7;
 }
 
 .genreSlideNavbar {
   display: flex;
   flex-direction: row;
+  align-items: center;
   width: 100%;
   overflow-x: scroll;
   scrollbar-width: 0;
@@ -32,21 +56,63 @@
   margin: 0 10px;
 }
 
-.genreSlideNavbarItem > label {
-  cursor: pointer;
-}
-
-.genreSlideNavbarItem > label:first-of-type {
+.genreSlideNavbarItem:first-of-type {
   margin-left: 0;
 }
 
-.genreSlideNavbarItem > label:last-of-type {
+.genreSlideNavbarItem:last-of-type {
   margin-right: 0;
+}
+
+.genreSlideNavbarItem > label {
+  cursor: pointer;
 }
 
 .genreSlideNavbarItem input {
   display: none;
 }
 .genreSlideNavbarItem input:checked + span {
-  color: red;
+  color: #e50914;
+  font-size: larger;
+}
+
+.genreSliderItemsContainer {
+  direction: ltr;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .genreContainer {
+    padding: 0px 20px 10px 20px;
+  }
+
+  .genreBreadcrumb {
+    padding: 0 0 10px 0;
+  }
+
+  .genreSliderContainer {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    direction: rtl;
+  }
+
+  .genreSlideNavbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: scroll;
+    scrollbar-width: 0;
+  }
+
+  .genreSlideNavbarItem {
+    margin: 5px;
+  }
+
+  .genreSlideNavbarItem:first-of-type {
+    margin-left: 5px;
+  }
+
+  .genreSlideNavbarItem:last-of-type {
+    margin-right: 5px;
+  }
 }

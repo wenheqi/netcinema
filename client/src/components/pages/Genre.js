@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import NavBar from "../elements/Navbar";
 import Footer from "../elements/Footer";
+import InfiniteScroll from "../elements/InfiniteScroll";
 import "./Genre.css";
 
 export default function Genre() {
   const { id } = useParams();
-  document.title = `NetCinema - ${id} movies`;
+  const genre = id.charAt(0).toUpperCase() + id.slice(1);
+  document.title = `NetCinema - ${genre} movies`;
 
   const navCategory = [
-    "#",
     "A",
     "B",
     "C",
@@ -35,9 +36,10 @@ export default function Genre() {
     "X",
     "Y",
     "Z",
+    "#",
   ];
 
-  const [tabVal, setTabVal] = useState("#");
+  const [tabVal, setTabVal] = useState("A");
 
   const onTabChange = (e) => {
     setTabVal(e.target.value);
@@ -47,6 +49,9 @@ export default function Genre() {
     <div>
       <NavBar />
       <div className="genreContainer">
+        <div className="genreBreadcrumb">
+          <a href="/">Home</a> {`>`} {genre}
+        </div>
         <div className="genreSliderContainer">
           <div className="genreSliderNavbarContainer">
             <div className="genreSlideNavbar">
@@ -64,7 +69,9 @@ export default function Genre() {
               ))}
             </div>
           </div>
-          <div className="genreSliderItem"> selected tab is {tabVal}</div>
+          <div className="genreSliderItemsContainer">
+            <InfiniteScroll genre={genre} initial={tabVal} />
+          </div>
         </div>
       </div>
       <Footer />
