@@ -78,6 +78,35 @@ class MoviesDao {
       return { moviesList: [] };
     }
   }
+
+  static async getSampleMoviesByGenre({ genre = "Action" }) {
+    try {
+      let moviesList = await movies
+        .aggregate([
+          {
+            $match: {
+              genre: genre,
+              image: { $exists: true },
+              year: { $gte: 2000 },
+            },
+          },
+          {
+            $sample: { size: 10 },
+          },
+          {
+            $project: {
+              name: 1,
+              image: 1,
+            },
+          },
+        ])
+        .toArray();
+      return { moviesList };
+    } catch (e) {
+      console.error(`Unable to issue find command, ${e}`);
+      return { moviesList: [] };
+    }
+  }
 }
 
 exports = module.exports = MoviesDao;

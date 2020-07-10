@@ -9,5 +9,6 @@ router.route("/suggest/:query").get(MoviesCtrl.getSuggestion);
 router
   .route("/genre/:genreId/:initial/:offset")
   .get(MoviesCtrl.getMoviesByGenre);
+router.route("/sample/:genre").get(MoviesCtrl.getSampleMoviesByGenre);
 
 exports = module.exports = router;

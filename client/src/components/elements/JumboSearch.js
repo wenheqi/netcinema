@@ -33,7 +33,7 @@ export default function JumboSearch() {
   };
   return (
     <div className="jumboSearchContainer">
-      <div>
+      <div className="greetingMsg">
         <h2>Welcome.</h2>
         <h3>
           Millions of movies, TV shows and people to discover. Explore now.

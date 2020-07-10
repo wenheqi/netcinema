@@ -37,6 +37,12 @@ class MoviesController {
     });
     return res.send(moviesList);
   }
+
+  static async getSampleMoviesByGenre(req, res) {
+    const genre = req.params.genre;
+    let moviesList = await MoviesDao.getSampleMoviesByGenre({ genre });
+    return res.send(moviesList);
+  }
 }
 
 exports = module.exports = MoviesController;

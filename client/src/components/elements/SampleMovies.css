@@ -1,0 +1,53 @@
+.sampleMoviesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sampleMoviesContainer h3 {
+  margin-bottom: 8px;
+}
+
+.sampleMoviesContainer a {
+  text-decoration: none;
+  font: inherit;
+  color: inherit;
+}
+
+.sampleMovies {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+  row-gap: 10px;
+}
+
+.sampleMovieContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sampleMoviePoster img {
+  width: 100%;
+}
+
+/* Large devices (iPad Pro, desktops, 992px and up) */
+@media (min-width: 992px) {
+  .sampleMoviesContainer {
+    margin: 0 30px;
+  }
+
+  .sampleMoviesContainer h3 {
+    font-size: xx-large;
+  }
+
+  .sampleMovies {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+    row-gap: 20px;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 992px) {
+  .sampleMovies {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}

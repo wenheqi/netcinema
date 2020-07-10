@@ -4,6 +4,7 @@ import Navbar from "./components/elements/Navbar";
 import Footer from "./components/elements/Footer";
 import Section from "./components/elements/Section";
 import JumboSearch from "./components/elements/JumboSearch";
+import SampleMovies from "./components/elements/SampleMovies";
 
 function App() {
   return (
@@ -13,78 +14,27 @@ function App() {
       <Section>
         <JumboSearch />
       </Section>
-
-      <section style={{ background: "tomato" }}>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ background: "tomato" }}>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ background: "tomato" }}>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ background: "tomato" }}>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ background: "tomato" }}>
-        <div>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-        </div>
-      </section>
-
-      {/* movie slide section */}
+      <Section>
+        <SampleMovies genre="Action" />
+      </Section>
+      <Section>
+        <SampleMovies genre="Comedy" />
+      </Section>
+      <Section>
+        <SampleMovies genre="Drama" />
+      </Section>
+      <Section>
+        <SampleMovies genre="Family" />
+      </Section>
+      <Section>
+        <SampleMovies genre="Horror" />
+      </Section>
+      <Section>
+        <SampleMovies genre="Sci-Fi" />
+      </Section>
+      <Section>
+        <SampleMovies genre="Romance" />
+      </Section>
       <Footer />
     </div>
   );
