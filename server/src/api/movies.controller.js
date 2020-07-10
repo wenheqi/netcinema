@@ -23,6 +23,20 @@ class MoviesController {
     let suggestion = await MoviesDao.getSuggestion(req.params.query);
     return res.send(suggestion);
   }
+
+  static async getMoviesByGenre(req, res) {
+    const genre = req.params.genreId;
+    const initial = req.params.initial;
+    const offset = parseInt(req.params.offset);
+    const moviesPerPage = 20;
+    let moviesList = await MoviesDao.getMoviesByGenre({
+      genre,
+      initial,
+      offset,
+      moviesPerPage,
+    });
+    return res.send(moviesList);
+  }
 }
 
 exports = module.exports = MoviesController;
