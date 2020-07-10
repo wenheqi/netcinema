@@ -1,0 +1,20 @@
+.itemsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+/* Large devices (iPad Pro, desktops, 992px and up) */
+@media (min-width: 992px) {
+  .itemsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 10px;
+  }
+}
+
+@media (orientation: portrait) and (min-width: 992px) {
+  .itemsContainer {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
