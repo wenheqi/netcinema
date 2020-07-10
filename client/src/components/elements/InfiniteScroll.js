@@ -48,10 +48,10 @@ export default function InfiniteScroll({ genre, initial }) {
       return;
     }
 
-    // Checks that the page has scrolled to the bottom
+    // Checks that the page has almost scrolled to the bottom
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
-      document.documentElement.offsetHeight
+      window.innerHeight + window.pageYOffset >=
+      document.documentElement.offsetHeight * 0.8
     ) {
       loadMovies(movies.length);
     }
