@@ -34,6 +34,9 @@ export default function InfiniteScroll({ genre, initial }) {
   }
 
   useEffect(() => {
+    // scroll back to top
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
     setMovies([]);
     setIsLoading(false);
     setHasMoreMovies(true);
