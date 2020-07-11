@@ -1,0 +1,60 @@
+.commentsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentsEditorContainer {
+  padding: 5px;
+}
+
+.commentsInputContainer {
+  width: 100%;
+  border-bottom: 1px solid gray;
+  transition: border-bottom cubic-bezier(0.39, 0.575, 0.565, 1) 0.2s;
+}
+
+.commentsInputContainer[contentEditable="true"]:empty:before {
+  content: attr(placeholder);
+}
+
+.commentsInputContainer:active,
+.commentsInputContainer:focus {
+  border-bottom: 1px solid #e50914;
+  outline: none;
+}
+
+.commentsInputOptionsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 5px 0;
+}
+
+.commentsLoadMoreContainer button,
+.commentsInputOptionsContainer button {
+  background-color: #e50914;
+  border: none;
+  border-radius: 3px;
+  color: inherit;
+  font: inherit;
+  margin-right: 5px;
+  outline: none;
+}
+.commentsInputOptionsContainer button:disabled {
+  background: #dddddd;
+}
+
+.commentsInputOptionsContainer button.cancel {
+  background: #000000;
+}
+
+.commentsInputOptionsContainer button:last-of-type {
+  margin-right: 0;
+}
+
+.commentsLoadMoreContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 10px;
+}

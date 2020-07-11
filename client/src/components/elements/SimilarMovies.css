@@ -1,0 +1,19 @@
+.similarMoviesContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.similarMovieContainer {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+}
+
+.similarMoviePosterContainer > img {
+  width: 100%;
+}
+
+.simlarMovieContentContainer {
+  margin-bottom: 10px;
+}

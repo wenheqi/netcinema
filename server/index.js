@@ -8,6 +8,8 @@ const usersRoute = require("./src/api/users.route");
 const usersDao = require("./src/dao/users.dao");
 const moviesRoute = require("./src/api/movies.route");
 const moviesDao = require("./src/dao/movies.dao");
+const commentsRoute = require("./src/api/comments.route");
+const commentsDao = require("./src/dao/comments.dao");
 
 const app = express();
 const PORT = process.env.PORT;
@@ -20,6 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 // register api routes
 app.use("/api/v1/users", usersRoute);
 app.use("/api/v1/movies", moviesRoute);
+app.use("/api/v1/comments", commentsRoute);
 
 if (process.env.NODE_ENV === "production") {
   app.use("/", express.static(path.join(__dirname, "../client/build")));
@@ -42,6 +45,7 @@ app.listen(PORT, () => {
       console.log(`Connected to database...`);
       usersDao.injectDB(client);
       moviesDao.injectDB(client);
+      commentsDao.injectDB(client);
     });
 });
 

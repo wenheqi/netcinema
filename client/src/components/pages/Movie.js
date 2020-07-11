@@ -4,6 +4,8 @@ import axios from "axios";
 import NavBar from "../elements/Navbar";
 import Footer from "../elements/Footer";
 import Loader from "../elements/Loader";
+import Comments from "../elements/Comments";
+import SimilarMovies from "../elements/SimilarMovies";
 import NotFound from "./NotFound";
 import "./Movie.css";
 
@@ -39,7 +41,7 @@ export default function Movie() {
       {isLoading ? (
         <Loader />
       ) : (
-        <div>
+        <div className="movieContainer">
           <div className="heroContainer">
             <div className="heroImageContainer">
               <div className="heroImage">
@@ -131,8 +133,10 @@ export default function Movie() {
               </div>
             </div>
           </div>
-          <div>TODO: I'm another container</div>
-          <div>TODO: I'm yet another container</div>
+          <div className="commentsAndSimilarMoviesContainer">
+            <Comments movieId={movie._id} />
+            <SimilarMovies genre={movie.genre ? movie.genre[0] : null} />
+          </div>
         </div>
       )}
       <Footer />

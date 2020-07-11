@@ -1,0 +1,25 @@
+.commentContainer {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.commentTitleContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.commentContentContainer {
+  flex-grow: 1;
+}
+
+.commentContent {
+  border-bottom: 1px solid gray;
+  padding: 5px 0;
+}
+
+.commentOptionContainer {
+  display: flex;
+  justify-content: flex-end;
+}
