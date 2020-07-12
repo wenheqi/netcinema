@@ -6,6 +6,7 @@ export default function JumboSearch() {
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [suggestionData, setSuggestionData] = useState([]);
+  const [selectedIdx, setSelectedIdx] = useState(-1);
 
   useEffect(() => {
     setIsLoading(true);
@@ -32,8 +33,45 @@ export default function JumboSearch() {
     setQuery(event.target.value);
   };
 
+  useEffect(() => {
+    if (selectedIdx >= suggestionData.length) {
+      setSelectedIdx(0);
+    } else if (selectedIdx < 0) {
+      setSelectedIdx(suggestionData.length - 1);
+    }
+  }, [selectedIdx]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleKeyDown = (event) => {
+    const KEY_ENTER = 13;
+    const KEY_ARROW_UP = 38;
+    const KEY_ARROW_DOWN = 40;
+    const KEY_ARROW_ESC = 27;
+    switch (event.keyCode) {
+      case KEY_ENTER:
+        if (query.length === 0) {
+          event.preventDefault();
+        }
+        break;
+      case KEY_ARROW_DOWN:
+        setSelectedIdx((oldId) => oldId + 1);
+        break;
+      case KEY_ARROW_UP:
+        setSelectedIdx((oldId) => oldId - 1);
+        break;
+      case KEY_ARROW_ESC:
+        setQuery("");
+        break;
+      default:
+        break;
+    }
+  };
+
   const onSearchButtonClick = (event) => {
     event.preventDefault();
+    if (selectedIdx >= 0) {
+      window.location = `/movie/${suggestionData[selectedIdx]._id}`;
+      return;
+    }
     window.location = `/search/${query}`;
   };
 
@@ -51,6 +89,7 @@ export default function JumboSearch() {
             type="text"
             value={query}
             onChange={handleQueryChange}
+            onKeyDown={handleKeyDown}
             placeholder="Search for a movie, tv show, person......"
           />
           <input type="submit" value="Search" onClick={onSearchButtonClick} />
@@ -70,24 +109,27 @@ export default function JumboSearch() {
               </div>
             </div>
           ) : (
-            <div className="searchAutoCompleteContent">
+            <ul className="searchAutoCompleteContent">
               {suggestionData.length > 0 ? (
-                suggestionData.map((movie) => {
+                suggestionData.map((movie, index) => {
                   return (
-                    <div key={movie._id}>
+                    <li
+                      key={movie._id}
+                      className={index === selectedIdx ? "selected" : ""}
+                    >
                       <a
                         style={{ color: "inherit", textDecoration: "none" }}
                         href={`/movie/${movie._id}`}
                       >
                         {movie.name}
                       </a>
-                    </div>
+                    </li>
                   );
                 })
               ) : (
-                <div>No result found...</div>
+                <li>No result found...</li>
               )}
-            </div>
+            </ul>
           )}
         </div>
       </div>

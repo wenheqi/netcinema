@@ -72,6 +72,13 @@
   flex-direction: column;
   flex-wrap: nowrap;
   background: #3d3d3deb;
+  list-style-type: none;
+  margin: 0;
+}
+
+.searchAutoCompleteContent li:hover,
+.searchAutoCompleteContent li.selected {
+  color: #e50914;
 }
 
 .seachAutoCompleteLoader {
