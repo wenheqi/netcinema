@@ -31,15 +31,8 @@ export default function JumboSearch() {
 
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
+    setSelectedIdx(-1);
   };
-
-  useEffect(() => {
-    if (selectedIdx >= suggestionData.length) {
-      setSelectedIdx(0);
-    } else if (selectedIdx < 0) {
-      setSelectedIdx(suggestionData.length - 1);
-    }
-  }, [selectedIdx]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleKeyDown = (event) => {
     const KEY_ENTER = 13;
@@ -53,10 +46,22 @@ export default function JumboSearch() {
         }
         break;
       case KEY_ARROW_DOWN:
-        setSelectedIdx((oldId) => oldId + 1);
+        if (selectedIdx + 1 < suggestionData.length)
+          setSelectedIdx((oldId) => oldId + 1);
+        else if (suggestionData.length > 0) {
+          setSelectedIdx(0);
+        } else {
+          setSelectedIdx(-1);
+        }
         break;
       case KEY_ARROW_UP:
-        setSelectedIdx((oldId) => oldId - 1);
+        if (selectedIdx > 0) {
+          setSelectedIdx((oldId) => oldId - 1);
+        } else if (suggestionData.length > 0) {
+          setSelectedIdx(suggestionData.length - 1);
+        } else {
+          setSelectedIdx(-1);
+        }
         break;
       case KEY_ARROW_ESC:
         setQuery("");
