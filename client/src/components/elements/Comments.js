@@ -49,7 +49,7 @@ export default function Comments({ movieId }) {
 
   useEffect(() => {
     loadComments();
-  }, []); // eslint-disable-next-line
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const onCommentInput = (e) => {
     setNewComment(e.currentTarget.textContent);

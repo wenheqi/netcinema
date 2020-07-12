@@ -1,0 +1,41 @@
+.searchResultsContainer {
+  margin: 0 5px;
+}
+
+.searchBreadcrumb {
+  padding: 0;
+}
+
+.searchBreadcrumb a {
+  text-decoration: none;
+  color: inherit;
+  font: inherit;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.searchBreadcrumb a:hover {
+  color: #e50914;
+}
+
+.searchResults {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 5px;
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .searchResultsContainer {
+    margin: 0 20px;
+  }
+
+  .searchBreadcrumb {
+    padding: 0 0 10px 0;
+  }
+
+  .searchResults {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 20px;
+  }
+}

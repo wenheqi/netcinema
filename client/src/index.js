@@ -10,6 +10,7 @@ import Logout from "./components/pages/Logout";
 import Signup from "./components/pages/Signup";
 import Movie from "./components/pages/Movie";
 import Genre from "./components/pages/Genre";
+import Search from "./components/pages/Search";
 
 ReactDOM.render(
   <Router>
@@ -31,6 +32,9 @@ ReactDOM.render(
       </Route>
       <Route exact path="/genre/:id">
         <Genre />
+      </Route>
+      <Route exact path="/search/:query">
+        <Search />
       </Route>
     </div>
   </Router>,

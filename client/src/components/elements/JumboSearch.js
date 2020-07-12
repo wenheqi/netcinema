@@ -31,6 +31,12 @@ export default function JumboSearch() {
   const handleQueryChange = (event) => {
     setQuery(event.target.value);
   };
+
+  const onSearchButtonClick = (event) => {
+    event.preventDefault();
+    window.location = `/search/${query}`;
+  };
+
   return (
     <div className="jumboSearchContainer">
       <div className="greetingMsg">
@@ -47,7 +53,7 @@ export default function JumboSearch() {
             onChange={handleQueryChange}
             placeholder="Search for a movie, tv show, person......"
           />
-          <input type="submit" value="Search" />
+          <input type="submit" value="Search" onClick={onSearchButtonClick} />
         </form>
         <div
           className={

@@ -24,7 +24,11 @@ class MoviesDao {
   }
 
   static async getMoviesByName(name) {
-    return await movies.find({ name }).toArray();
+    return await movies
+      .find({ name: { $regex: `^${name}`, $options: "i" } })
+      .project({ name: 1, image: 1 })
+      .sort({ year: -1 })
+      .toArray();
   }
 
   static async getSuggestion(query) {
