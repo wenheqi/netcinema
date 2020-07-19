@@ -39,6 +39,7 @@ class UsersDao {
         {
           _id: newUser.email,
           email: newUser.email,
+          name: newUser.name,
           password: newUser.password,
         },
         {

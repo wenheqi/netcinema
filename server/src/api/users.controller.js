@@ -10,6 +10,7 @@ class UserController {
       const hashedPassword = await hashPassword(req.body.password);
       const result = await usersDao.addUser({
         email: req.body.email,
+        name: req.body.email.slice(0, req.body.email.indexOf("@")),
         password: hashedPassword,
       });
       return res.send(result);
