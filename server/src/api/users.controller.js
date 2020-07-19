@@ -8,12 +8,22 @@ class UserController {
   static async signup(req, res) {
     try {
       const hashedPassword = await hashPassword(req.body.password);
-      const result = await usersDao.addUser({
+      const userToBeAdded = {
         email: req.body.email,
         name: req.body.email.slice(0, req.body.email.indexOf("@")),
         password: hashedPassword,
+      };
+      const result = await usersDao.addUser(userToBeAdded);
+      return res.send({
+        ...result,
+        token: jwt.sign(
+          {
+            exp: Math.floor(Date.now() / 1000) + 60 * 60 * 4,
+            ...userToBeAdded,
+          },
+          process.env.SECRET_KEY
+        ),
       });
-      return res.send(result);
     } catch (e) {
       return res.status(500).json({
         status: "error",
